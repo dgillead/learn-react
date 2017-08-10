@@ -10,6 +10,7 @@ class Counter extends Component {
     this._addOne = this._addOne.bind(this);
     this._addFive = this._addFive.bind(this);
     this._addTen = this._addTen.bind(this);
+    this._resetCounter = this._resetCounter.bind(this);
   }
 
   _addOne(e) {
@@ -32,13 +33,20 @@ class Counter extends Component {
     })
   }
 
+  _resetCounter() {
+    this.setState({
+      currentCount: 0
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>The current count is {this.state.currentCount}</h1>
         <button value={1} onClick={this._addOne}>Add 1</button>
         <button value={5} onClick={this._addFive}>Add 5</button>
-        <button value={10} onClick={this._addTen}>Add 10</button>
+        <button value={10} onClick={this._addTen}>Add 10</button><br/>
+        <button onClick={this._resetCounter}>Reset Count</button>
       </div>
     )
   }
